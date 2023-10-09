@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $.ajax({
-        url: 'http://172.17.0.4/employee/getAllEmployee', // Replace with the actual API endpoint
+        url: 'http://172.17.0.4:8282/employee/getAllEmployee', // Replace with the actual API endpoint
         method: 'GET',
         dataType: 'json',
         success: function (data) {
@@ -43,6 +43,31 @@ $(document).ready(function () {
     }
 });
 
+
+function getQueryParam(name) {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    return urlSearchParams.get(name);
+}
+
+function getCookie(name) {
+
+    var value = "; " + document.cookie;
+
+    var parts = value.split("; " + name + "=");
+
+    if (parts.length === 2) return parts.pop().split(";").shift();
+
+}
+
+var userName = getCookie("username");
+
+if (userName) {
+
+    document.getElementById("welcomeMessage").textContent =
+
+        "Welcome, " + userName + " !";
+
+}
 
 
 

@@ -1,67 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login Page</title>
-    <link rel="stylesheet" href="css/custom.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
-    />
-  </head>
 
-  <body>
-    <div class="container mt-5">
-      <div class="container">
-        <div class="row m-5 no-gutters shadow-lg">
-          <div class="col-md-6 d-none d-md-block">
-            <img
-              src="https://images.unsplash.com/photo-1566888596782-c7f41cc184c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80"
-              class="img-fluid"
-              style="width: 320px"
-            />
-          </div>
-          <div class="col-md-6 bg-white p-5">
-            <h3 class="pb-3">Login</h3>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body class="login">
+  <!-- Bootstrap Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="images/encourage.png" alt="Your Logo" width="100" class="header-logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="container">
+      <div class="row no-gutters shadow-lg">
+        <div class="col-md-6 d-none d-md-block text-center">
+          <img
+            src="images/loginPage.jpeg"
+            class="img-fluid" style="width: 320px" />
+        </div>
+        <div class="col-md-6 bg-white p-5">
+          <div id="loginSection">
+            <h3 class="pb-3 form_header">Login</h3>
             <div class="form-style">
               <form id="loginForm" onsubmit="return false">
-                <div class="form-group pb-3">
-                  <input
-                    for="Username"
-                    type="input"
-                    placeholder="Email"
-                    class="form-control"
-                    id="username"
-                    aria-describedby="emailHelp"
-                  />
+                <div class="form-group pb-3 floating-label">
+                  <input for="Username" type="input" placeholder=" " class="form-control" id="username"
+                    aria-describedby="emailHelp" />
+                  <label for="username">Email</label>
                 </div>
-                <div class="form-group pb-3">
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    class="form-control"
-                    id="password"
-                  />
+                <div class="form-group pb-3 floating-label">
+                  <input type="password" placeholder=" " class="form-control" id="password" />
+                  <label for="password">Password</label>
+                  <i class="fas fa-eye-slash"
+                    style="position: absolute; top: 37%; right: 10px; transform: translateY(-50%); cursor: pointer;"
+                    id="togglePassword"></i>
                 </div>
+                <div class="form-group pb-1">
+                  <select class="form-control" id="loginAs">
+                    <option value="manager">Employee</option>
+                    <option value="user">Manager</option>
+                    <option value="admin">Admin</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <div class="custom-control custom-checkbox  rememberMe">
+                    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                    <label class="custom-control-label" for="customCheck">Remember Me</label>
+                  </div>
+                </div>
+                
                 <div class="pb-2">
-                  <button class="submit"
-                    type="submit"
-                    class="btn btn-dark w-100 font-weight-bold mt-2"
-                  >
+                  <button class="submit-button mt-2  main-btn btn w-100" type="submit">
                     Submit
                   </button>
                 </div>
+                <div class="pb-2 multi_btn ">
+                  <a href="#" id="showSignup">Sign Up</a>
+                  <a href="#" id="showForgotPassword">Forgot Password</a>
+                </div>
               </form>
-              <div></div>
+            </div>
+          </div>
+          <div id="signupSection" style="display: none;">
+            <h3 class="pb-3 form_header">Sign Up</h3>
+            <div class="form-style">
+              <form id="signupForm" onsubmit="return false">
+                <div class="form-group pb-3 floating-label">
+                  <input for="NewUsername" type="input" placeholder=" " class="form-control" id="newUsername"
+                    aria-describedby="newEmailHelp" />
+                  <label for="newUsername">New Email</label>
+                </div>
+                <div class="form-group pb-3 floating-label">
+                  <input type="password" placeholder=" " class="form-control" id="newPassword" />
+                  <label for="newPassword">New Password</label>
+                  <i class="fas fa-eye-slash"
+                    style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"
+                    id="toggleNewPassword"></i>
+                </div>
+                <div class="pb-2">
+                  <button class="submit-button mt-2  main-btn btn w-100" type="submit" class="btn btn-dark w-100 font-weight-bold mt-2">
+                    Sign Up
+                  </button>
+                </div>
+                <div class="pb-2">
+                  <button class="back-button btn-outline-primary" id="goBackSignup">Back</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div id="forgotPasswordSection" style="display: none;">
+            <h3 class="pb-3 form_header">Forgot Password</h3>
+            <div class="form-style">
+              <form id="forgotPasswordForm" onsubmit="return false">
+                <div class="form-group pb-3 floating-label">
+                  <input for="ForgotUsername" type="input" placeholder=" " class="form-control" id="forgotUsername"
+                    aria-describedby="forgotEmailHelp" />
+                  <label for="forgotUsername">Email</label>
+                </div>
+                <div class="pb-2">
+                  <button class="submit-button mt-2  main-btn btn w-100" type="submit" class="btn btn-dark w-100 font-weight-bold mt-2">
+                    Send Reset Email
+                  </button>
+                </div>
+                <div class="pb-2">
+                  <button class="back-button btn-outline-primary" id="goBackForgotPassword">Back</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
-    <script src="js/login.js"></script>
-  </body>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/login.js"></script>
+ 
+</body>
+
 </html>

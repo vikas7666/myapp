@@ -1,6 +1,16 @@
 body {
     background: #c9ccd1;
 }
+ /* Custom CSS for dark background */
+ .navbar-dark {
+    background-color: #ccc; /* Change this to your preferred dark color */
+}
+
+/* Style for the "Points" button */
+.points-button {
+    background-color: #ff9900; /* Button background color */
+    color: #fff !important; 
+}
 
 .table_wrapper {
     overflow-y: auto;
